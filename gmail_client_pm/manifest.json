@@ -3,7 +3,7 @@
   "description": "Gmail client wrapper (learned from openclaw/skills pierremenard/gmail-client)",
   "entrypoint": "tool.sh",
   "inputs": {
-    "action": "list|read|send",
+    "action": "diag|send|list|read",
     "id": "string (read)",
     "to": "string (send)",
     "subject": "string (send)",
@@ -12,5 +12,9 @@
   },
   "permissions": [
     "email"
+  ],
+  "env": [
+    "GMAIL_USER",
+    "GMAIL_APP_PASS"
   ]
 }
