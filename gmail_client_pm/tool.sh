@@ -17,6 +17,15 @@ for a in "$@"; do
   esac
 done
 
+# Load creds from host-managed env file if the caller didn't provide them.
+# This avoids hardcoding secrets in openclaw.json; only /etc/openclaw is mounted read-only.
+if [ -z "${GMAIL_USER:-}" ] || [ -z "${GMAIL_APP_PASS:-}" ]; then
+  if [ -f /etc/openclaw/gmail.env ]; then
+    # shellcheck disable=SC1091
+    . /etc/openclaw/gmail.env || true
+  fi
+fi
+
 json_escape() {
   # minimal escape for JSON strings
   printf "%s" "$1" | sed 's/\\/\\\\/g; s/"/\\"/g; s/\t/\\t/g; s/\r/\\r/g; s/\n/\\n/g'
