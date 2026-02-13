@@ -7,7 +7,10 @@
     "id": "string (read)",
     "to": "string (send)",
     "subject": "string (send)",
-    "body": "string (send)"
+    "body": "string (send)",
+    "account": "string (optional, for gog)"
   },
-  "permissions": ["email"]
+  "permissions": [
+    "email"
+  ]
 }

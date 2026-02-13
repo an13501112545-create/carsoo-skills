@@ -25,6 +25,16 @@ fi
 # We will wire this to GOG/OpenClaw Gmail in the next step.
 # For now, validate inputs and environment.
 case "$action" in
+  diag)
+    # check gog availability + list accounts if possible
+    if command -v gog >/dev/null 2>&1; then
+      echo "{\"ok\":true,\"gog\":\"present\",\"hint\":\"next run: gog auth manage (or login) with --account\"}"
+      (gog auth manage --help >/dev/null 2>&1) || true
+    else
+      echo "{\"ok\":false,\"gog\":\"missing\",\"hint\":\"gog not found in sandbox; we will mount it or use OpenClaw gmail connector\"}"
+    fi
+    ;;
+
   list)
     echo "{\"ok\":false,\"error\":\"not wired yet\",\"next\":\"wire to GOG/OpenClaw Gmail; then list unread\"}"
     ;;
