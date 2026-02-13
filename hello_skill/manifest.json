@@ -1,0 +1,7 @@
+{
+  "name": "hello_skill",
+  "description": "Sanity-check skill system",
+  "entrypoint": "tool.py",
+  "inputs": { "name": "string" },
+  "permissions": []
+}
