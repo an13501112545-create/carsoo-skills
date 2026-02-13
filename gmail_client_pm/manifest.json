@@ -1,0 +1,13 @@
+{
+  "name": "gmail_client_pm",
+  "description": "Gmail client wrapper (learned from openclaw/skills pierremenard/gmail-client)",
+  "entrypoint": "tool.sh",
+  "inputs": {
+    "action": "list|read|send",
+    "id": "string (read)",
+    "to": "string (send)",
+    "subject": "string (send)",
+    "body": "string (send)"
+  },
+  "permissions": ["email"]
+}
